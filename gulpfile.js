@@ -9,6 +9,7 @@ const sourceMaps = require('gulp-sourcemaps');
 
 const webpack = require('webpack-stream');
 const babel = require('gulp-babel');
+const imagemin = require('gulp-imagemin');
 
 const fileIncludeSettings = {
     prefix: '@@',
@@ -33,6 +34,7 @@ gulp.task('sass', function(){
 
 gulp.task('copyImages', function(){
     return gulp.src('./src/img/**/*')
+    .pipe(imagemin({verbose:true}))
     .pipe(gulp.dest('./dist/img/'))
 });
 
